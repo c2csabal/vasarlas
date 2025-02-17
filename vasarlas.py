@@ -32,13 +32,23 @@ def egymasUtanKoltesNelkuliNap(sorok):
                 KoltesNelkuliNapokSoroatba = 1
     return KoltesNelkuliNapokSoroatbaOsszes
 
+def LegkevesebbKoltes(sorok):
+    legkisebbSzam = 100000000
+    for szam in sorok:
+        if int(szam) < legkisebbSzam and int(szam) != 0:
+            legkisebbSzam = int(szam)
+    return legkisebbSzam
+
+
 szamok = Szambeolv(sor)
 VNN = vasarlasNelkuliNapok(sor)
 KNNS = egymasUtanKoltesNelkuliNap(sor)
+legkisebbSzam = LegkevesebbKoltes(sor)
+
 print(sor)
 print(VNN,"nap nem költött semmit.")
 print("Átlag: ",sum(szamok)/len(szamok))
-print("Legkisebb szám: ",min(szamok))
+print("Legkisebb szám: ",legkisebbSzam)
 print("Legnagyobb szám: ",max(szamok))
 print("Összes költés: ",sum(szamok))
 print(KNNS, "napig sorozatba nem költött semmit.")
